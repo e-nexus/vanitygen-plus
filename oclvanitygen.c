@@ -293,6 +293,7 @@ main(int argc, char **argv)
 					"WKC : Wankcoin : 1\n"
 					"WUBS : Dubstepcoin : D\n"
 					"XC : XCurrency : X\n"
+                                        "XCN : Cryptonite : C\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
@@ -301,6 +302,14 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+                        else
+			if (strcmp(optarg, "XCN")== 0) {
+				fprintf(stderr,
+					"Generating Cryptonite Address\n");
+					addrtype = 28;
+					privtype = 128;
+					break;
 			}
 			else
 			if (strcmp(optarg, "ACM")== 0) {

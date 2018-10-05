@@ -320,7 +320,7 @@ void
 usage(const char *name)
 {
 	fprintf(stderr,
-"Vanitygen %s (" OPENSSL_VERSION_TEXT ")\n"
+"Vanitygen-XCN %s (" OPENSSL_VERSION_TEXT ")\n"
 "Usage: %s [-vqnrik1NT] [-t <threads>] [-f <filename>|-] [<pattern>...]\n"
 "Generates a bitcoin receiving address matching <pattern>, and outputs the\n"
 "address and associated private key.  The private key may be stored in a safe\n"
@@ -340,7 +340,6 @@ usage(const char *name)
 "-a <amount>   Stop after generating <amount> addresses/keys\n"
 "-C <altcoin>  Generate an address for specific altcoin, use \"-C LIST\" to view\n"
 "              a list of all available altcoins, argument is case sensitive!\n"
-"-X <version>  Generate address with the given version\n"
 "-Y <version>  Specify private key version (-X provides public key)\n"
 "-F <format>   Generate address with the given format (pubkey, compressed, script)\n"
 "-P <pubkey>   Specify base public key for piecewise key generation\n"
@@ -556,6 +555,7 @@ main(int argc, char **argv)
 					"WKC : Wankcoin : 1\n"
 					"WUBS : Dubstepcoin : D\n"
 					"XC : XCurrency : X\n"
+					"XCN : Cryptonite : C\n"
 					"XPM : Primecoin : A\n"
 					"YAC : Yacoin : Y\n"
 					"YTN : Yenten : Y\n"
@@ -564,6 +564,14 @@ main(int argc, char **argv)
 					"ZRC : Ziftrcoin : Z\n"
 					);
 					return 1;
+			}
+			else
+			if (strcmp(optarg, "XCN")== 0) {
+				fprintf(stderr,
+					"Generating Cryptonite Address\n");
+					addrtype = 28;
+					privtype = 128;
+					break;
 			}
 			else
 			if (strcmp(optarg, "ACM")== 0) {
